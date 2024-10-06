@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Attendance System Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles1.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fas fa-user"></i> Hi, {{ username }}</h3>
+                <a href="{{ url_for('logout') }}" class="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+            <ul>
+                <li><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="#register"><i class="fas fa-user"></i> Students</a></li>
+                <li><a href="#schedule"><i class="fas fa-calendar-alt"></i> Schedule</a></li>
+                <li><a href="#attendance"><i class="fas fa-clipboard-list"></i> Attendance Sheet</a></li>
+                <li><a href="#reports"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                <li><a href="#logs"><i class="fas fa-history"></i> Attendance Logs</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <header>
+                <h2>Dashboard</h2>
+                <div class="welcome-message">
+                    Welcome to the College Attendance Management System
+                </div>
+            </header>
+
+            <section class="cards">
+                {% for class in classes %}
+                <div class="card class-{{ class.name }}">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="card-info">
+                        <h3>{{ class.name }}</h3>
+                        <p>Total Students: {{ class.total }}</p>
+                        <p>Present: <span class="present-count" data-target="{{ class.present }}">{{ class.present }}</span></p>
+                        {% if class.total > 0 %}
+                            <p>Percentage: <span class="percentage" data-target="{{ (class.present / class.total) * 100 }}">{{ (class.present / class.total) * 100 }}</span>%</p>
+                            <div class="progress-bar" data-target="{{ (class.present / class.total) * 100 }}"></div>
+                        {% else %}
+                            <p>Percentage: <span class="percentage" data-target="0">0</span>%</p>
+                            <div class="progress-bar" data-target="0"></div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% endfor %}
+            </section>
+
+            <section class="overall-chart">
+                <h3>Overall Attendance</h3>
+                <canvas id="overallChart"></canvas>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        const overallPercentages = {{ overall_percentages | tojson }};
+    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

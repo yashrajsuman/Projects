@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('https://static.vecteezy.com/system/resources/previews/007/164/537/non_2x/fingerprint-identity-sensor-data-protection-system-podium-hologram-blue-light-and-concept-free-vector.jpg') no-repeat center center/cover;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    color: #fff;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.login-box h2 {
+    margin-bottom: 30px;
+    animation: slideDown 1s ease-in-out;
+}
+
+.user-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+    animation: inputFadeIn 2s ease-in-out;
+}
+
+.user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #03a9f4;
+    font-size: 12px;
+}
+
+button {
+    background: #03a9f4;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    animation: buttonFadeIn 2s ease-in-out;
+}
+
+button:hover {
+    background: #0288d1;
+}
+
+a {
+    color: #03a9f4;
+    text-decoration: none;
+    display: block;
+    margin-top: 20px;
+    animation: linkFadeIn 2s ease-in-out;
+}
+
+a:hover {
+    color: #0288d1;
+}
+
+.gif-container {
+    position: absolute;
+    top: 35%;
+    left: 150%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    opacity: 2.5;
+}
+
+.gif-container img {
+    width: 600px;
+    height: auto;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes inputFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes buttonFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes linkFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

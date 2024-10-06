@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="login-body">
+    <div class="container">
+        <div class="login-box">
+            <h1>Admin Portal</h1>
+            <!-- Existing content -->
+            <h2>Login</h2>
+            <form action="{{ url_for('login') }}" method="post">
+                <div class="user-box">
+                    <input type="text" name="username" required>
+                    <label>Username</label>
+                </div>
+                <div class="user-box">
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                </div>
+                <button type="submit">Login</button>
+                <a href="#">Forgot your password?</a>
+            </form>
+        </div>
+        <!-- Existing background GIF container -->
+        <div class="gif-container">
+            <img src="{{ url_for('static', filename='img/face.gif') }}" alt="Background Animated GIF">
+        </div>
+    </div>
+</body>
+</html>
