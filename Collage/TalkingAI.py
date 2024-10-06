@@ -3,7 +3,7 @@ import openai
 import speech_recognition as sr
 import pyttsx3
 
-openai.api_key = "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"
+openai.api_key = "*****************************************"
 model_engine = "text-babbage-001"
 engine = pyttsx3.init()
 r = sr.Recognizer()

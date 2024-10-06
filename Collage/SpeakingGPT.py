@@ -3,7 +3,7 @@ import random
 import speech_recognition as sr
 import pyttsx3
 
-openai.api_key = "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"
+openai.api_key = "***********************************************"
 model_engine = "text-davinci-002"
 engine = pyttsx3.init()
 r = sr.Recognizer()

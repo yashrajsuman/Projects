@@ -2,7 +2,7 @@ import telegram
 from telegram.ext import Updater, MessageHandler, Filters
 import openai
 
-openai.api_key = "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"
+openai.api_key = "*********************************************"
 model_engine = "text-davinci-002"
 
 def generate_response(prompt):
